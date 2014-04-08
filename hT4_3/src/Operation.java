@@ -5,9 +5,9 @@ import java.util.List;
  * Created by delf on 18.03.14.
  */
 abstract public class Operation extends Polynom {
-    protected final Polynom[] operands;
+    protected final Expression3[] operands;
 
-    Operation(Polynom[] operands) {
+    Operation(Expression3[] operands) {
         this.operands = operands;
     }
 

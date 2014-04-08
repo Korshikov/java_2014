@@ -2,7 +2,7 @@
  * Created by delf on 01.04.14.
  */
 public class UnarySubtract extends Operation{
-    UnarySubtract(Polynom... items){
+    UnarySubtract(Expression3... items){
         super(items);
     }
 

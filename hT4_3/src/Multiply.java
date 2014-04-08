@@ -3,7 +3,7 @@
  */
 public class Multiply extends Operation{
     public static final int MIN_OPERANDS_COUNT = 2;
-    Multiply(Polynom ... items){
+    Multiply(Expression3 ... items){
         super(items);
     }
 

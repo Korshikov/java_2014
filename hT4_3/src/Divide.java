@@ -2,7 +2,7 @@
  * Created by delf on 18.03.14.
  */
 public class Divide extends Operation {
-    Divide(Polynom ... items){
+    Divide(Expression3 ... items){
         super(items);
     }
 

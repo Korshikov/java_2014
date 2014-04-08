@@ -4,7 +4,7 @@
 public class Subtract extends Operation {
     public static final int MIN_OPERANDS_COUNT = 2;
 
-    Subtract(Polynom... items) {
+    Subtract(Expression3... items) {
         super(items);
     }
 

@@ -2,7 +2,7 @@
  * Created by delf on 18.03.14.
  */
 public class Add extends Operation{
-    Add(Polynom ... items){
+    Add(Expression3 ... items){
         super(items);
     }
 
