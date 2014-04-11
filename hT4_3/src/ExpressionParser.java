@@ -19,6 +19,9 @@ public class ExpressionParser {
             /*if ((str.charAt(0) != '+') && (str.charAt(0) != '-')) {
                 break;
             }*/
+            if(str.length()==0){
+                return left;
+            }
             char sign=str.charAt(0);
             str = str.substring(1);
             left = parseMulDivMod();
@@ -30,7 +33,7 @@ public class ExpressionParser {
             }
 
         //}
-        return null;
+        return left;
         }
 
     static private Expression3 parseMulDivMod() {
@@ -39,6 +42,9 @@ public class ExpressionParser {
             /*if ((str.charAt(0) != '*') && (str.charAt(0) != '/') && (str.charAt(0) != '%')) {
                 break;
             }*/
+            if(str.length()==0){
+                return left;
+            }
             char sign = str.charAt(0);
             str = str.substring(1);
             right = parseBrackets();
@@ -51,7 +57,7 @@ public class ExpressionParser {
                     return new Mod(left, right);
             }
         //}
-        return  null;
+        return  left;
     }
 
 
@@ -68,28 +74,31 @@ public class ExpressionParser {
 
     static private Expression3 parseUnaryOperation(){
         char tmp =str.charAt(0);
-        str = str.substring(1);
-        Expression3 inside = parseUnaryOperation();
+        Expression3 inside;
         switch (tmp){
             case '~':
+                str = str.substring(1);
+                inside = parseUnaryOperation();
                 return new Neg(inside);
             case '-':
+                str = str.substring(1);
+                inside = parseUnaryOperation();
                 return new UnarySubtract(inside);
         }
         return parseNum();
     }
 
     static private Expression3 parseNum() {
-        if(str.charAt(0)=='('){
+        if((str.length()>0)&&(str.charAt(0)=='(')){
             return parseBrackets();
         }
         Expression3 ret=null;
-        if((str.charAt(0)>='0')&&(str.charAt(0)<='9')||(str.charAt(0)=='.')){
+        if((str.length()>0)&&((str.charAt(0)>='0')&&(str.charAt(0)<='9')||(str.charAt(0)=='.'))){
             int numLen=1;
-            while((str.charAt(numLen)>='0')&&(str.charAt(numLen)<='9')||(str.charAt(numLen)=='.')){
+            while((str.length()>numLen)&&((str.charAt(numLen)>='0')&&(str.charAt(numLen)<='9')||(str.charAt(numLen)=='.'))){
                 numLen++;
             }
-            ret = new Const(Double.parseDouble(str.substring(0,numLen)));
+            ret = new Const(Integer.parseInt(str.substring(0,numLen)));
             str = str.substring(numLen);
         }else{
             ret = new Variable(str.substring(0,1));

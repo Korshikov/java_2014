@@ -8,9 +8,9 @@ public class Multiply extends Operation{
     }
 
 
-    protected double consider(double ... items) {
+    protected int consider(int ... items) {
         assert items.length>=MIN_OPERANDS_COUNT;
-        double ret=items[0];
+        int ret=items[0];
         for(int i=1;((i<items.length)&&(ret!=0));i++){
             ret*=items[i];
         }

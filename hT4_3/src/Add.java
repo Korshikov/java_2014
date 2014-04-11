@@ -7,8 +7,8 @@ public class Add extends Operation{
     }
 
 
-    protected double consider(double ... items) {
-        double ret= items[0];
+    protected int consider(int ... items) {
+        int ret= items[0];
         for(int i=1;i<items.length;i++){
             ret+=items[i];
         }

@@ -8,7 +8,7 @@ public class Variable extends Polynom {
         varName=var.charAt(0);
     }
 
-    public double evaluate(double var1, double var2, double var3) {
+    public int evaluate(int var1, int var2, int var3) {
         switch (varName){
             case 'x':
             case 'X':

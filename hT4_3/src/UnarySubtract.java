@@ -7,7 +7,7 @@ public class UnarySubtract extends Operation{
     }
 
 
-    protected double consider(double ... items) {
+    protected int consider(int ... items) {
         assert items.length ==1;
         return -(items[0]);
     }
