@@ -9,7 +9,7 @@ public class Divide extends Operation {
 
     protected int consider(int ... items) {
         int ret=items[0],buf;
-        assert items[1]!= 0;
+//        assert items[1]!= 0;
         buf = items[1];
         for(int i=2;i<items.length;i++){
             assert items[i]!= 0;

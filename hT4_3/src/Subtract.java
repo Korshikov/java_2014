@@ -11,12 +11,23 @@ public class Subtract extends Operation {
 
 
     protected int consider(int... items) {
-        assert items.length >= MIN_OPERANDS_COUNT;
+        assert (items.length >= MIN_OPERANDS_COUNT):"unexpected operands count";
         int ret = items[0];
         for (int i = 1; i < items.length; i++) {
-            ret -= items[i];
+            ret = operation(ret,items[i]);
         }
         return ret;
     }
+    /*protected <T extends Number> T consider(T... items) {
+        assert items.length >= MIN_OPERANDS_COUNT;
+        T ret = items[0];
+        for (int i = 1; i < items.length; i++) {
+            ret = operation(ret,items[i]);
+        }
+        return ret;
+    } */
 
+    private int operation(int first, int second){
+        return (first-second);
+    }
 }

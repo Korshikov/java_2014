@@ -9,7 +9,15 @@ public class Neg extends Operation {
 
 
     protected int consider(int... items) {
+        assert (items.length<=MAX_OPERANDS_COUNT):"unexpected operands count";
+        return operation(items[0]);
+    }
+    /*protected <T extends Number> T consider(T... items) {
         assert (items.length<=MAX_OPERANDS_COUNT);
-        return ~(items[0]);
+        return operation(items[0]);
+    }*/
+
+    private int operation(int item){
+        return ~item;
     }
 }
