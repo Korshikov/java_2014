@@ -117,21 +117,19 @@ public class ExpressionParser {
         if ((str.length() > pointer) && (str.charAt(pointer) == '(')) {
             return parseBrackets();
         }
-        Expression3 ret = null;
         if ((str.length() > pointer) && ((str.charAt(pointer) >= '0') && (str.charAt(pointer) <= '9') || (str.charAt(pointer) == '.') || (str.charAt(pointer) == '-'))) {
             int numLen = 1;
             while ((str.length() > numLen+pointer) && ((str.charAt(numLen+pointer) >= '0') && (str.charAt(numLen+pointer) <= '9') || (str.charAt(numLen+pointer) == '.'))) {
                 numLen++;
             }
-            ret = new Const(Integer.parseInt(str.substring(pointer,pointer+ numLen)));
-            //str = str.substring(numLen);
             pointer+=numLen;
-        } else {
-            ret = new Variable(str.substring(pointer, pointer+1));
+            return new Const(Integer.parseInt(str.substring(pointer-numLen,pointer)));
+            //str = str.substring(numLen);
+        } else if ((str.charAt(pointer)=='x')||(str.charAt(pointer)=='y')||(str.charAt(pointer)=='z')||(str.charAt(pointer)=='X')||(str.charAt(pointer)=='Y')||(str.charAt(pointer)=='Z')) {
+            return  new Variable(str.substring(pointer++, pointer));
             //str = str.substring(1);
-            pointer++;
         }
-        return ret;
+        return null;
     }
 
 }
