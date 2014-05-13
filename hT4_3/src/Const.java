@@ -8,7 +8,7 @@ public class Const extends Polynom{
         Value=constValue;
     }
 
-    public int evaluate(int var1, int var2, int var3) {
+    public int evaluate(int var1, int var2, int var3) throws CalculateException{
         return Value;
     }
 }

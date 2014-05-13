@@ -8,10 +8,10 @@ public class Add extends Operation {
 
 
 
-    protected int consider(int... items) {
+    protected int consider(int... items)  throws CalculateException {
         int ret =  items[0];
         for (int i = 1; i < items.length; i++) {
-            ret += items[i];
+            ret = operation(ret,items[i]);
         }
         return ret;
     }
@@ -21,9 +21,13 @@ public class Add extends Operation {
             ret = operation(ret,items[i]);
         }
         return ret;
-    }
-
-    protected static double operation(final double a, final double b){
-        return a+b;
     }*/
+
+    protected static int operation(final int a, final int b) throws CalculateException {
+        int c=a+b;
+        if(((a^c)&(b^c))<0){
+            throw new CalculateException("Overflow");
+        }
+        return c;
+    }
 }

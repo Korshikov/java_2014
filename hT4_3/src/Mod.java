@@ -10,7 +10,7 @@ public class Mod extends Operation {
     }
 
 
-    protected int consider(int... items) {
+    protected int consider(int... items) throws CalculateException{
         assert (items.length >= MIN_OPERANDS_COUNT) && (items.length <= MAX_OPERANDS_COUNT);
         return operation(items[0], items[1]);
     }
@@ -21,7 +21,10 @@ public class Mod extends Operation {
     } */
 
 
-    int operation(int first, int second) {
+    int operation(int first, int second) throws CalculateException{
+        if(second==0){
+            throw new DivByZeroException("mod by zero");
+        }
         return (first % second);
     }
 }

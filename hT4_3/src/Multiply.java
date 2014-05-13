@@ -8,12 +8,15 @@ public class Multiply extends Operation{
     }
 
 
-    protected int consider(int ... items) {
+    protected int consider(int ... items) throws CalculateException {
         assert items.length>=MIN_OPERANDS_COUNT;
-        int ret=items[0];
+        long ret=items[0];
         for(int i=1;((i<items.length)&&(ret!=0));i++){
             ret*=items[i];
         }
-        return ret;
+        if(ret > Integer.MAX_VALUE){
+            throw new CalculateException("Overflow");
+        }
+        return (int) ret;
     }
 }

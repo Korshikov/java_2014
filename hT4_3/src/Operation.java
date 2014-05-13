@@ -12,8 +12,8 @@ abstract public class Operation extends Polynom {
         this.operands = operands;
     }
 
-    /*
-    protected <T extends Number> T operation(final T ... operands){
+
+    /*protected <T extends Number> T operation(final T ... operands){
         if(operands instanceof BigDecimal[]){
             return (T) operation((BigDecimal[]) operands);
         }
@@ -30,7 +30,7 @@ abstract public class Operation extends Polynom {
     }*/
 
     //protected abstract <T extends Number> T consider(final T... items);
-    protected abstract int consider(final int... items);
+    protected abstract int consider(final int... items)  throws CalculateException;
 
     /*public <T extends Number> T evaluate(final T var1, final T var2, final T var3) {
         T[] considerItems = (T[]) new Object[operands.length];
@@ -39,7 +39,7 @@ abstract public class Operation extends Polynom {
         }
         return consider(considerItems);
     }*/
-    public int evaluate(final int var1, final int var2, final int var3) {
+    public int evaluate(final int var1, final int var2, final int var3) throws CalculateException{
         int[] considerItems = new int[operands.length];
         for (int i = 0; i < operands.length; i++) {
             considerItems[i] = operands[i].evaluate(var1, var2, var3);

@@ -8,7 +8,7 @@ public class Neg extends Operation {
     }
 
 
-    protected int consider(int... items) {
+    protected int consider(int... items) throws CalculateException {
         assert (items.length<=MAX_OPERANDS_COUNT):"unexpected operands count";
         return operation(items[0]);
     }
@@ -17,7 +17,10 @@ public class Neg extends Operation {
         return operation(items[0]);
     }*/
 
-    private int operation(int item){
+    private int operation(int item) throws CalculateException {
+        if(item==Integer.MIN_VALUE){
+            throw new CalculateException("Overflow");
+        }
         return ~item;
     }
 }

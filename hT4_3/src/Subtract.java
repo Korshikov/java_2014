@@ -10,7 +10,7 @@ public class Subtract extends Operation {
 
 
 
-    protected int consider(int... items) {
+    protected int consider(int... items) throws CalculateException {
         assert (items.length >= MIN_OPERANDS_COUNT):"unexpected operands count";
         int ret = items[0];
         for (int i = 1; i < items.length; i++) {
@@ -27,7 +27,12 @@ public class Subtract extends Operation {
         return ret;
     } */
 
-    private int operation(int first, int second){
-        return (first-second);
+    private int operation(int first, int second) throws CalculateException {
+        int c=first-second;
+        if(((first^c)&(second^c))>0){
+            throw new CalculateException("Overflow");
+        }
+
+        return (c);
     }
 }
