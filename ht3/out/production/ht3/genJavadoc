@@ -1,0 +1,5 @@
+#!/bin/bash
+rm -rf doc
+mkdir doc
+cd doc
+javadoc -cp /home/delf/java/tests/java-advanced-2015/artifacts/ImplementorTest.jar:. /home/delf/java/ht3/src/ru/ifmo/ctddev/korshikov/implementor/Implementor.java -private

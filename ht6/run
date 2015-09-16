@@ -1,0 +1,3 @@
+#!/bin/bash
+#javac -cp lib/*:. src/ru/ifmo/ctddev/korshikov/iterativeparallelism/*.java
+java -cp lib/*:.:src info.kgeorgiy.java.advanced.mapper.Tester scalar ru.ifmo.ctddev.korshikov.iterativeparallelism.ParallelMapperImpl,ru.ifmo.ctddev.korshikov.iterativeparallelism.IterativeParallelism

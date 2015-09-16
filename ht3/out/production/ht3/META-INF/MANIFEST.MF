@@ -1,0 +1,4 @@
+Manifest-Version: 1.0
+Class-Path: /home/delf/java/tests/java-advanced-2015/artifacts/ImplementorTest.jar
+Main-Class: ru.ifmo.ctddev.korshikov.implementor.Implementor
+

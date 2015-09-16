@@ -1,0 +1,5 @@
+#!/bin/bash
+rm -rf doc
+mkdir doc
+cd doc
+javadoc -cp /home/delf/java/tests/java-advanced-2015/artifacts/*:. /home/delf/java/ht6/src/ru/ifmo/ctddev/korshikov/iterativeparallelism/*.java -linkoffline http://docs.oracle.com/javase/7/docs/api/ http://docs.oracle.com/javase/7/docs/api/

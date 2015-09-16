@@ -1,0 +1,16 @@
+jar файл
+это обыкновенный zip
+
+API для работы с zip файлами
+
+	zipOutputStream
+	ZipInputStream
+
+	JarOutputStream
+	JarInputStream
+
+Сжимающие потоки
+	GZIPOutputStream
+
+Манифесты
+традиционно кодировка : US-ASCII
